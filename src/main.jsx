@@ -10,6 +10,7 @@ import { EducationContextProvider } from './context/EducationContext.jsx'
 import { ExperienceContextProvider } from './context/ExperienceContext.jsx'
 import { InterestContextProvider } from './context/InterestContext.jsx'
 import { SkillContextProvider } from './context/SkillContext.jsx'
+import { AwardContextProvider } from './context/AwardContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -22,7 +23,9 @@ createRoot(document.getElementById('root')).render(
               <ExperienceContextProvider>
                 <InterestContextProvider>
                   <SkillContextProvider>
-                    <App />
+                    <AwardContextProvider>
+                      <App />
+                    </AwardContextProvider>
                   </SkillContextProvider>
                 </InterestContextProvider>
               </ExperienceContextProvider>

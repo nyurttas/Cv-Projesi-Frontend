@@ -1,50 +1,29 @@
 import React from 'react'
+import { useContext } from 'react';
+import { AwardContext } from '../context/AwardContext.jsx';
+
 
 const Awards = () => {
+  const { awards } = useContext(AwardContext);
+
   return (
  <section className="resume-section" id="awards">
       <div className="resume-section-content">
         <h2 className="mb-5"> Sertifikalar</h2>
-        <ul className="fa-ul mb-0">
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            Google Analytics Certified Developer
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            Mobile Web Specialist - Google Certification
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            1
-            <sup>st</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2009
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            1
-            <sup>st</sup>
-            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            2
-            <sup>nd</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2008
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            1
-            <sup>st</sup>
-            Place - James Buchanan High School - Hackathon 2006
-          </li>
-          <li>
-            <span className="fa-li"><i className="fas fa-trophy text-warning" /></span>
-            3
-            <sup>rd</sup>
-            Place - James Buchanan High School - Hackathon 2005
-          </li>
-        </ul>
+        {
+          awards.map((award) => (
+            <div key={award.id} className="resume-award">
+              <h3 className="mb-0">{award.title}</h3>
+            
+              <p className="mb-5">{award.description}</p>
+              <p className="mb-5">{award.organisation}</p>
+              <p className="mb-5">{new Date(award.dateAt).toLocaleDateString()}</p>
+
+       
+
+            </div>
+          ))
+        }
       </div>
     </section>
   )
